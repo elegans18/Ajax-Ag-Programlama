@@ -14,5 +14,6 @@
 	else 
 	{
 		//echo "Veritabanı bağlantısı başarısız.";
+		//deneme
 	}
 ?>

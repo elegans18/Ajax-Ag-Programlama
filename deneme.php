@@ -27,8 +27,6 @@
   </head>
   <body>
 
-
-
   <div class="col-sm-12">
   <table class="table">
   <thead class="thead-dark">
@@ -77,8 +75,14 @@
   </table>
     </div>
 
-    <div id = "menu">
-      <div class="input-group mb-3">
+    <div id = "menu" class = "container-fluid">
+
+      
+      <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+
+            <div class="input-group mb-3">
       <div class="input-group-prepend">
       <span class="input-group-text" id="basic-addon1">Dersin Kodu :</span>
       </div>
@@ -98,18 +102,21 @@
       </div>
       <input type="text" class="form-control" aria-describedby="basic-addon1">
       </div>
-      
-      <div>
-      <button type="button" class="btn btn-primary">XML Göster</button>
-      <button type="button" class="btn btn-primary">JSON Göster</button>
-      </div>
 
-      <div class="input-group">
+      <button type="button" class="btn btn-outline-primary">XML Göster</button>
+      <button type="button" class="btn btn-outline-primary">JSON Göster</button>
+
+            <div class="input-group">
       <div class="input-group-prepend">
       <span class="input-group-text">Kodlanmış Veri</span>
       </div>
       <textarea class="form-control" aria-label="With textarea"></textarea>
     </div>
+
+      </div>
+      </div>
+
+
 
     </div>
 

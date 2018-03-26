@@ -27,7 +27,7 @@ while ($row = mysqli_fetch_array($sql)) {
     echo "<td>" . $row['ders_adi'] . "</td>";
     echo "
 		</tr>";*/
-	$str[] = array('sira_no'=> $row['sira_no'],'ders_kodu'=> $row['ders_kodu'],'ders_adi'=> $row['ders_adi']);
+	$str[] = array('sira_no'=> $row['sira_no'],'ders_kodu'=> $row['ders_kodu'],'ders_adi'=> $row['ders_adi'],'dersicerik'=> $row['dersicerik']);
 }
 //echo "</table>";
 print json_encode($str,JSON_UNESCAPED_UNICODE);

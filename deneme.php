@@ -15,6 +15,8 @@
   <script>
     $(document).ready(function () {
       $("#menu").hide();
+      $("#text2").hide();  
+      $("#text1").hide();  
       /*$('.tikla').click(function () {
         $("#menu").show(); //.show()
       });*/
@@ -30,9 +32,23 @@
       $( ".tikla" ).click(function() {
         $.getJSON("http://localhost/Ajax.php",function(data){
           $.each(data, function (key,item){
-            $('#veri').append('<tr><th scope="row">'+item.sira_no+'</th><td>'+item.ders_kodu+'</td><td>'+item.ders_adi+'</td></tr>');
+            if(item.sira_no==2)
+            {
+              document.getElementById("ders_kod").value = item.ders_kodu;
+              document.getElementById("ders_ad").value = item.ders_adi;
+              document.getElementById("ders_icerik").value = item.dersicerik;
+            }         
           });          
         });
+      });
+
+      $("#xml1").click(function(){
+        $("#text1").show();  
+        $("#text2").hide();  
+      });
+      $("#json1").click(function(){
+        $("#text2").show();  
+        $("#text1").hide();  
       });
 
 
@@ -58,7 +74,7 @@
       <thead class="thead-dark">
         <tr>
           <th scope="col">Sıra Numarası</th>
-          <th scope="col">Ders Kodu</th>
+          <th class="tikla" scope="col">Ders Kodu</th>
           <th scope="col">Ders Adı</th>
         </tr>
       </thead>
@@ -101,31 +117,32 @@
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">Dersin Kodu :</span>
           </div>
-          <input id="deneme" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+          <input id="ders_kod" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
         </div>
 
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">Dersin Adı :</span>
           </div>
-          <input type="text" class="form-control" aria-describedby="basic-addon1">
+          <input id="ders_ad" type="text" class="form-control" aria-describedby="basic-addon1">
         </div>
 
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">Dersin İçeriği :</span>
           </div>
-          <input type="text" class="form-control" aria-describedby="basic-addon1">
+          <input id="ders_icerik" type="text" class="form-control" aria-describedby="basic-addon1">
         </div>
 
-        <button type="button" class="btn btn-outline-primary">XML Göster</button>
-        <button type="button" class="btn btn-outline-primary">JSON Göster</button>
+        <button id="xml1" type="button" class="btn btn-outline-primary">XML Göster</button>
+        <button id="json1" type="button" class="btn btn-outline-primary">JSON Göster</button>
 
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text">Kodlanmış Veri</span>
           </div>
-          <textarea class="form-control" aria-label="With textarea"></textarea>
+          <textarea rows="5" id="text1" class="form-control" aria-label="With textarea"><?php require "Ajax1.php" ?></textarea>
+          <textarea rows="5" id="text2" class="form-control" aria-label="With textarea"><?php require "Ajax.php" ?></textarea>
         </div>
       </div>
     </div>

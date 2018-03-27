@@ -34,8 +34,8 @@ while ($row = mysqli_fetch_array($sql)) {
 }
 //echo "</table>";
 $strXML.= '</dersler>';
-//print ($strXML);
-print json_encode($str,JSON_UNESCAPED_UNICODE);
+print ($strXML);
+//print json_encode($str,JSON_UNESCAPED_UNICODE);
 
 ?>
 

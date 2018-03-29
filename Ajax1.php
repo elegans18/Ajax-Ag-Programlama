@@ -30,11 +30,11 @@ while ($row = mysqli_fetch_array($sql)) {
 		</tr>";*/
 
 		$strXML.= "<ders><sirano> ". $row['sira_no']."</sirano><derskodu>".$row['ders_kodu']."</derskodu><dersadi>".$row['ders_adi']."</dersadi><dersicerik>".$row['dersicerik']."</dersicerik></ders>";
-	$str[] = array('sira_no'=> $row['sira_no'],'ders_kodu'=> $row['ders_kodu'],'ders_adi'=> $row['ders_adi'],'dersicerik'=> $row['dersicerik']);
+	//$str[] = array('sira_no'=> $row['sira_no'],'ders_kodu'=> $row['ders_kodu'],'ders_adi'=> $row['ders_adi'],'dersicerik'=> $row['dersicerik']);
 }
 //echo "</table>";
 $strXML.= '</dersler>';
-print ($strXML);
+echo ($strXML);
 //print json_encode($str,JSON_UNESCAPED_UNICODE);
 
 ?>

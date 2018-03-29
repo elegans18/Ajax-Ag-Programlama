@@ -43,16 +43,59 @@
       });
 
       $("#xml1").click(function(){
+        $.ajax({
+          url:"Ajax1.php",
+          type: 'POST',
+          dataType:'xml',
+          data : 'deneme',
+          success: function(data)
+          {
+            console.log(data);
+            var de=new XMLSerializer().serializeToString(data);
+            $("#text1").text(de);
+          }
+        });
         $("#text1").show();  
-        $("#text2").hide();  
+        $("#text2").hide();         
       });
       $("#json1").click(function(){
+        $.ajax({
+          url:"Ajax.php",
+          type: 'POST',
+          dataType:'json',
+          data : 'deneme',
+          success: function(data)
+          {
+            console.log(data);  
+            var de = JSON.stringify(data);          
+            $("#text2").text(de);
+          }
+        });
         $("#text2").show();  
         $("#text1").hide();  
       });
 
+      $('#ders_ad,#ders_kod, #ders_icerik').keyup(function yenikayit() {
 
-    });
+          var form_data =
+          {
+            ders_kod: $('#ders_kod').val(),
+            ders_ad: $('#ders_ad').val(),
+            ders_icerik: $('#ders_icerik').val()
+          };
+
+          $.ajax({
+              url: "Ajax2.php",
+              type: 'POST',
+              //dataType: 'json',
+              data: form_data,
+              success: function(msg){
+                console.log("Basarili");
+              }
+          });
+      });
+
+  });
   </script>
 
 
@@ -141,8 +184,8 @@
           <div class="input-group-prepend">
             <span class="input-group-text">Kodlanmış Veri</span>
           </div>
-          <textarea rows="5" id="text1" class="form-control" aria-label="With textarea"><?php require "Ajax1.php" ?></textarea>
-          <textarea rows="5" id="text2" class="form-control" aria-label="With textarea"><?php require "Ajax.php" ?></textarea>
+          <textarea rows="5" id="text1" class="form-control" aria-label="With textarea"></textarea>
+          <textarea rows="5" id="text2" class="form-control" aria-label="With textarea"></textarea>
         </div>
       </div>
     </div>
